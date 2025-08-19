@@ -1,6 +1,8 @@
-const { v2: cloudinary } = require('cloudinary');
+const cloudinary = require('cloudinary').v2;
 
-// This auto-reads process.env.CLOUDINARY_URL
-cloudinary.config();
+// This reads CLOUDINARY_URL from your .env
+cloudinary.config({
+  secure: true, // ensures HTTPS URLs
+});
 
 module.exports = cloudinary;
