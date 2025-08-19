@@ -19,9 +19,8 @@ router.post('/upload', upload.single('image'), async (req, res) => {
       streamifier.createReadStream(req.file.buffer).pipe(stream);
     });
 
-    // ✅ This sends back the Cloudinary URL
     res.json({
-      url: result.secure_url,    // <-- This is the HTTPS URL you will save in DB
+      url: result.secure_url,
       public_id: result.public_id
     });
 
